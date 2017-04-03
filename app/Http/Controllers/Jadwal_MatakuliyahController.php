@@ -36,7 +36,7 @@ class Jadwal_MatakuliyahController extends Controller
       public function lihat($id)
    {
          $jadwal_matakuliyah=Jadwal_Matakuliyah::find($id);
-         return view('jadwal_matakuliyah.lihat')->with(array('jadwal_matakuliyah' =>$jadwal_matakuliyah));
+         return view('Jadwal_Matakuliyah.lihat')->with(array('jadwal_matakuliyah' =>$jadwal_matakuliyah));
    }
       public function update($id, Requests $input)
    {
