@@ -7,9 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Ruangan extends Model
 {
     protected $table = 'Ruangan';
-    protected $fillable = ['id','title','created_at','updated_at'];
-    public function Jadwal_Matakuliah()
+    protected $fillable = ['id','title'];
+
+    public function Jadwal_Matakuliyah()
     {
-    	return $this->hasMany(Jadwal_Matakuliah::class);
+    	return $this->hasOne(Jadwal_Matakuliyah::class);
     }
+
 }

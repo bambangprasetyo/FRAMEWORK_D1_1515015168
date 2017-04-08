@@ -8,7 +8,7 @@
 <div class="form-group">
 	<label class="col-sm-2 control-label" id="nim">NIM</label>
 	<div class="col-sm-10">
-		{!! Form::text('nip',null,['class'=>'form-control','id'=>'nip','placeholder'=>"NIP"]) !!}	
+		{!! Form::text('nim',null,['class'=>'form-control','id'=>'nim','placeholder'=>"NIM"]) !!}	
 	</div>
 </div>
 <div class="form-group">
@@ -30,3 +30,11 @@
 	</div>
 </div>
 
+<!-- $mahasiswa = Mahasiswa::find($id);
+        $mahasiswa->nama = $input->nama;
+        $mahasiswa->nip = $input->nip;
+        $mahasiswa->alamat = $input->alamat;
+        $mahasiswa->pengguna_id = $input->pengguna_id;
+        $informasi = $mahasiswa->save() ? 'Berhasil update data': 'Gagal update data';
+        return redirect ('mahasiswa') -> with (['informasi'=>$informasi]);
+    } -->

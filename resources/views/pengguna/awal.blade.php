@@ -21,7 +21,7 @@
 								@foreach ($data as $pengguna)
 									<tr>
 									<td>{{ $x++ }}</td>
-									<td>{{ $pengguna->Username or 'username kosong'}}</td>
+									<td>{{ $pengguna->username or 'username kosong'}}</td>
 									<td>{{ $pengguna->password or 'password kosong'}}</td>
 									<td>
 										<div class="btn-group" role-"group">

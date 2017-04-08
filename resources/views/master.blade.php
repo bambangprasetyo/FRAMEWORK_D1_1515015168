@@ -33,7 +33,7 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a href="{{url('/')}}" class="navbar-brand">Kuuga-Men</a>
+						<a href="{{url('/')}}" class="navbar-brand">Laravel 5</a>
 					</div>
 					<div id="navbar" class="collapse navbar-collapse">
 						<ul class="nav navbar-nav">
@@ -79,10 +79,10 @@
 					<nav class="navbar navbar-default navbar-fixed-bottom">
 					<footer class="container">
 									<!-- please dont delete this -->
-									created by <a href="https://www.twitter.com/@bmbngprsty">
+									created by <a href="https://www.facebook.com/syamsudin.hadi.1">
 									<span>
-									<i class="fa fa-twitter" style="color:#1da1f2"></i>
-									@Kuuga-Men</span></a>
+									<i class="fa fa-facebook" style="color:#1da1f2"></i>
+									@Syamsudinhadi</span></a>
 									<!--please dont delete this-->
 									
                                                                                                  </nav>

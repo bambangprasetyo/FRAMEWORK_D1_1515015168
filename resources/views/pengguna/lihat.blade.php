@@ -8,7 +8,7 @@
 				<tr>
 						<td>Username</td>
 						<td>:</td>
-						<td>{{ $pengguna->Username }}</td>
+						<td>{{ $pengguna->username }}</td>
 				</tr>
 				<tr>
 						<td>Password</td>

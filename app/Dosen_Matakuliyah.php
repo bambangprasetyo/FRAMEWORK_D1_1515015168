@@ -4,47 +4,31 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Dosen_Matakuliah extends Model
+class Dosen_Matakuliyah extends Model
 {
-    //
-    protected $table = 'dosen_matakuliah';
-    protected $fillable = ['dosen_id','matakuliah_id'];
+    protected $table = 'Dosen_Matakuliyah';
+    protected $guarded = ['id'];
 
-    public function Dosen()
-    {
-        return $this->belongsTo(Dosen::class);
-    }
-    public function Matakuliah()
-    {
-        return $this->belongsTo(Matakuliah::class);
-    }
-    public function getNamadosenAttribute(){
-        return $this->dosen->nama;
-    }
-    public function getNipdosenAttribute(){
-        return $this->dosen->nip;
-    }
-    public function getTitlematakuliahAttribute(){
-        return $this->matakuliah->title;
-    }
+    public function dosen()
+   {
+    return $this->belongsTo(dosen::class,'Dosen_id');
+   }
 
-    public function Jadwal_Matakuliah()
-    {
-        return $this->hasMany(Jadwal_Matakuliah::class);
-    }
+   public function jadwal_matakuliyah()
+   {
+    return $this->hasMany(jadwal_matakuliyah::class);
+   }
 
-    public function listDosenDanMatakuliah()
-    {
-        $out = [];
-        foreach ($this->all() as $dsnMtk) {
-            $out[$dsnMtk->id] = "{$dsnMtk->dosen->nama} {$dsnMtk->dosen->nip} (Matakuliah {$dsnMtk->matakuliah->title})";
-        }
-        return $out;
-    }
-
-   
-    // public function getUsernameAttribute(){
-    //     return $this->pengguna->username;
-    // }
-
+   public function matakuliyah()
+   {
+    return $this->belongsTo(matakuliyah::class,'Matakuliyah_id');
+   }
+   public function listDosenDanMatakuliyah()
+   {
+      $out = [];
+      foreach ($this->all() as $dsnMtk) {
+         $out[$dsnMtk->id] = "{$dsnMtk->dosen->nama} (matakuliyah{$dsnMtk->matakuliyah->title})";
+      }
+      return $out;
+   }
 }

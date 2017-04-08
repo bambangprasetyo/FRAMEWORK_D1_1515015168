@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Kuuga-men</title>
+        <title>Laravel</title>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
@@ -38,8 +38,8 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Kuuga-men</div>
-                <div class="title">Nim:1515015168</div>
+                <div class="title">XAMMUDIN</div>
+                <div class="title">Nim:1515015189</div>
             </div>
         </div>
     </body>

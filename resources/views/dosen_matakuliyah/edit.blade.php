@@ -2,16 +2,16 @@
 @section('container')
 <div class="panel panel-info">
 	<div class="panel-heading">
-		<strong><a href="{{ url('matakuliyah') }}">
+		<strong><a href="{{ url('dosen_matakuliyah') }}">
 <i class="fa text-default fa-chevron-left"></i>
-</a> Perbarui Data matakuliyah</strong>
+</a> Perbarui Data jadwal Dosen Mengajar</strong>
 	</div>
-	{!! Form::model($matakuliyah,['url'=>'matakuliyah/edit/'.$matakuliyah->id,'class'=>'form-horizontal']) !!}
-		@include('matakuliyah.form')
-		<div style="width:100%;text-align:right;">
+	{!! Form::model($dosen_matakuliyah,['url'=>'dosen_matakuliyah/edit/'.$dosen_matakuliyah->id,'class'=>'form-horizontal']) !!}
+		@include('dosen_matakuliyah.form')
+		<div style="width: 100%;text-align: right;">
 			<button class="btn btn-info"><i class="fa fa-save"></i>Perbarui</button>
 			<button type="reset" class="btn btn danger"><i class="fa fa-undo"></i> Ulangi</button>
 			</div>
 			{!! Form::close() !!}
-			</div>
-			@stop
+		</div>
+	@stop
