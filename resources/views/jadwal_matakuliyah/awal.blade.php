@@ -22,7 +22,7 @@
 									<tr>
 									<td>{{ $x++ }}</td>
 									<td>{{ $matakuliyah->title or 'title kosong'}}</td>
-									<td>{{ $matakuliyah->keterang or 'keterang kosong'}}</td>
+									<td>{{ $matakuliyah->keterangan or 'keterang kosong'}}</td>
 									<td>
 										<div class="btn-group" role-"group">
 											<a href="{{url('matakuliyah/edit/'.$matakuliyah->id)}}" class="btn btn-warning btn-xs" data-toggle="tooltip" data-placement="top" title="Ubah">
