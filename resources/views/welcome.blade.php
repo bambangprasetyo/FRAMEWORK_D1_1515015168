@@ -35,12 +35,4 @@
             }
         </style>
     </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                <div class="title">XAMMUDIN</div>
-                <div class="title">Nim:1515015189</div>
-            </div>
-        </div>
-    </body>
 </html>

@@ -88,10 +88,10 @@
 					<nav class="navbar navbar-default navbar-fixed-bottom">
 					<footer class="container">
 									<!-- please dont delete this -->
-									created by <a href="https://www.facebook.com/syamsudin.hadi.1">
+									created by <a href="https://www.twitter.com/@bmbngprsty">
 									<span>
 									<i class="fa fa-facebook" style="color:#1da1f2"></i>
-									@Syamsudinhadi</span></a>
+									@bmbngprsty</span></a>
 									<!--please dont delete this-->
 									
                                                                                                  </nav>
