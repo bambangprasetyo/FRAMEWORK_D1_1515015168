@@ -8,7 +8,7 @@
 				<div class="clearfix"></div>
 			</div>
 			<table class="table">
-						<thead>
+						<head>
 							<tr>
 									<th>No.</th>
 									<th>Nama</th>
@@ -16,8 +16,8 @@
 									<th>Alamat</th>
 									<th>Aksi</th>
 							</tr>
-						</thead>
-						<tbody>
+						</head>
+						<body>
 								<?php $x=1?>
 								@foreach ($semuaMahasiswa as $mahasiswa)
 									<tr>
@@ -35,7 +35,7 @@
 										</td>
 									</tr>
 									@endforeach
-								</tbody>
+								</body>
 							</table>
 					</div>
 					@stop

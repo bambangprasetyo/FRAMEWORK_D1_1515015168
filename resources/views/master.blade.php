@@ -73,6 +73,15 @@
 													<strong>Informasi :</strong>
 				{{Session::get('informasi')}}
 									</div>
+							@if (count($errors) > 0)
+							<div class="alert alert-danger">
+								<ul>
+									@foreach ($errors->all() as $error)
+									<li>{{ $error }}</li>
+									@endforeach
+								</ul>
+							</div>
+							@endif
 							@endif
 							@yield('container')
 					</div>
@@ -93,4 +102,4 @@
                                                                                                    $('[data-toggle="tooltip"]').tooltip()
                                                                                                   });
                                                                                                  </script>
-                                                                                            </body>
+                                                                                           </body>

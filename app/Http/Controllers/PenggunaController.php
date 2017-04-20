@@ -12,7 +12,7 @@ class PenggunaController extends Controller
 {
    public function awal()
    {
-         return view('pengguna.awal',['data'=>Pengguna::all()]);
+         return view('pengguna.awal',['data'=>Pengguna::paginate(5)]);//batasan kalau mau semua gunakan all
    }
       public function tambah()
    {
@@ -20,6 +20,10 @@ class PenggunaController extends Controller
    }
       public function simpan(Request $input)
    {
+         $this->validate($input,[
+               'username'=>"required|unique:pengguna|max:30",
+               'password'=>"required|min:5",
+            ]);
          $pengguna = new Pengguna;
          $pengguna->Username = $input->username;
          $pengguna->password = $input->password;

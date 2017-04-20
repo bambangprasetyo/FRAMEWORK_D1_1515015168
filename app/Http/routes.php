@@ -10,6 +10,28 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+use Illuminate\Http\Request;
+Route::get('/',function ()
+{
+	echo Form::open(['url'=>'/']).
+		 Form::label('nama').
+		 Form::text('nama',null).'<br>'.
+		 Form::label('nim').
+		 Form::text('nim',null).'<br>'.
+		 Form::Submit('kirim').
+		 Form::close();	
+});
+Route::post('/',function (Request $request)
+{
+	echo "hasil dari from input nama : ". $request->nama;
+	echo "<br> hasil dari from input nim : ". $request->nim;
+});
+
+Route::get('/req',function (Illuminate\Http\Request $request)
+{
+	echo "ini adalah request dari method get ". $request->nama;
+});
+
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -81,6 +103,9 @@ Route::get('jadwal_matakuliyah/edit/{jadwal_matakuliyah}','Jadwal_MatakuliyahCon
 Route::post('jadwal_matakuliyah/edit/{jadwal_matakuliyah}','Jadwal_MatakuliyahController@update');
 Route::get('jadwal_matakuliyah/hapus/{jadwal_matakuliyah}','Jadwal_MatakuliyahController@hapus');
 
+
+Route::get('ujiHas','RelationshipRebornController@ujiHas');
+Route::get('ujiDoesntHave','RelationshipRebornController@ujiDoesntHave');
 
 // Route::get('mahasiswa','MahasiswaController@awal');
 // Route::get('mahasiswa/tambah','MahasiswaController@tambah');

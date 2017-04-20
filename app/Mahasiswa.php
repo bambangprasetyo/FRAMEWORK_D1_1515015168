@@ -7,8 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Mahasiswa extends Model
 {
     protected $table = 'Mahasiswa';
-    //protected $fillable = ['nama','nim','alamat','pengguna_id'];
-    protected $fillable = ['id','nama','nim','alamat','pengguna_id','created_at','updated_at'];
+    protected $fillable = ['nama','nim','alamat','pengguna_id'];
     public function Pengguna()
     {
         return $this->belongsTo(Pengguna::class);
