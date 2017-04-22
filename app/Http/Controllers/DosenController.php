@@ -8,6 +8,7 @@ use App\Http\Requests;
 
 use App\dosen;
 use App\Pengguna;
+use App\Http\Requests\DosenRequest;
 
 class DosenController extends Controller
 {
@@ -22,7 +23,7 @@ class DosenController extends Controller
    {
          return view('dosen.tambah');
    }
-      public function simpan(Request $input)
+      public function simpan(DosenRequest $input)
    {
          $pengguna = new Pengguna($input->only('username','password'));
             if ($pengguna->save()) {
@@ -45,7 +46,7 @@ class DosenController extends Controller
          $dosen=dosen::find($id);
          return view('dosen.lihat')->with(array('dosen' =>$dosen));
    }
-      public function update($id, Request $input)
+      public function update($id, DosenRequest $input)
    {
          $dosen = Dosen::find($id);
          // $pengguna = $dosen->pengguna;

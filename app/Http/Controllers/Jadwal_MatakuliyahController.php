@@ -14,6 +14,8 @@ use App\Dosen_Matakuliyah;
 
 use App\Ruangan;
 
+use App\Http\Requests\Jadwal_MatakuliyahRequest;
+
 class Jadwal_MatakuliyahController extends Controller
 {
     public function awal()
@@ -31,7 +33,7 @@ class Jadwal_MatakuliyahController extends Controller
         return view('jadwal_matakuliyah.tambah',compact('mahasiswa','ruangan','dosen_matakuliyah'));
       // return $this->simpan();
     }
-      public function simpan(Request $input)
+      public function simpan(Jadwal_MatakuliyahRequest $input)
       {
         // dd($input->Mahasiswa_id);
         $jadwal_matakuliyah = new Jadwal_matakuliyah($input->only('Mahasiswa_id','Ruangan_id','Dosen_Matakuliyah_id'));
@@ -52,7 +54,7 @@ class Jadwal_MatakuliyahController extends Controller
         $dosen_matakuliyah = new Dosen_matakuliyah;
         return view('jadwal_matakuliyah.edit',compact('mahasiswa','ruangan','dosen_matakuliyah','jadwal_matakuliyah'));
    }
-      public function update($id, Request $input)
+      public function update($id, Jadwal_MatakuliyahRequest $input)
    {
          $jadwal_matakuliyah = Jadwal_matakuliyah::find($id);
         $jadwal_matakuliyah->fill($input->only('Ruangan_id','Dosen_Matakuliyah_id','Mahasiswa_id'));

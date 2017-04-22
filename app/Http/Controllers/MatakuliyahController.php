@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\matakuliyah;
+use App\Http\Requests\MatakuliyahRequest;
 
 class MatakuliyahController extends Controller
 {
@@ -18,7 +19,7 @@ class MatakuliyahController extends Controller
    {
          return view('matakuliyah.tambah');
    }
-      public function simpan(Request $input)
+      public function simpan(MatakuliyahRequest $input)
    {
          $matakuliyah = new matakuliyah;
          $matakuliyah->title = $input->title;
@@ -36,7 +37,7 @@ class MatakuliyahController extends Controller
          $matakuliyah=matakuliyah::find($id);
          return view('matakuliyah.lihat')->with(array('matakuliyah' =>$matakuliyah));
    }
-      public function update($id, Request $input)
+      public function update($id, MatakuliyahRequest $input)
    {
          $matakuliyah=matakuliyah::find($id);
          $matakuliyah->title = $input->title;

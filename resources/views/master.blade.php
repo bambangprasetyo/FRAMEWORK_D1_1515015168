@@ -33,7 +33,7 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a href="{{url('/')}}" class="navbar-brand">Laravel 5</a>
+						<a href="{{url('/')}}" class="navbar-brand">Kuuga-Men</a>
 					</div>
 					<div id="navbar" class="collapse navbar-collapse">
 						<ul class="nav navbar-nav">
@@ -84,6 +84,16 @@
 							@endif
 							@endif
 							@yield('container')
+							@if(count($errors) > 0)
+							<div class="alert alert-danger">
+								<ul>
+									@foreach ($errors->all() as $error)
+									<li>{{ $error }}</li>
+									@endforeach
+
+								</ul>	
+							</div>
+							@endif
 					</div>
 					<nav class="navbar navbar-default navbar-fixed-bottom">
 					<footer class="container">
@@ -91,7 +101,7 @@
 									created by <a href="https://www.twitter.com/@bmbngprsty">
 									<span>
 									<i class="fa fa-facebook" style="color:#1da1f2"></i>
-									@bmbngprsty</span></a>
+									@Kuuga-Men</span></a>
 									<!--please dont delete this-->
 									
                                                                                                  </nav>

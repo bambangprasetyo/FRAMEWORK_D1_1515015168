@@ -11,7 +11,7 @@ use App\Dosen_Matakuliyah;
 use App\dosen;
 
 use App\matakuliyah;
-
+use App\Http\Requests\Dosen_MatakuliyahRequest;
 
 class dosen_matakuliyahController extends Controller
 {
@@ -27,7 +27,7 @@ class dosen_matakuliyahController extends Controller
       $matakuliyah = new matakuliyah;
       return view('dosen_matakuliyah.tambah', compact('dosen','matakuliyah'));
    }
-      public function simpan(Request $input)
+      public function simpan(Dosen_MatakuliyahRequest $input)
    {
         $dosen_matakuliyah = new dosen_matakuliyah($input->only('dosen_id','matakuliyah_id'));
       if ($dosen_matakuliyah->save()) $this->informasi = "Jadwal Dosen Mengajar Berhasil Disimpan";
@@ -45,7 +45,7 @@ class dosen_matakuliyahController extends Controller
          $dosen_matakuliyah=Dosen_Matakuliyah::find($id);
          return view('dosen_matakuliyah.lihat')->with(array('dosen_matakuliyah' =>$dosen_matakuliyah));
    }
-      public function update($id, Request $input)
+      public function update($id, Dosen_MatakuliyahRequest $input)
    {
         $dosen_matakuliyah = dosen_matakuliyah::find($id);
       $dosen_matakuliyah->fill($input->only('dosen_id','matakuliyah_id'));
