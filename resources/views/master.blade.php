@@ -2,6 +2,15 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	@if (count($errors)>0)
+	<div class="alert alert-danger">
+	<ul>
+	@foreach($errors->all()as $error)
+	<li>{{$error}}</li>
+	@endforeach
+	</ul>
+	</div>
+	@endif
 	<title>@yield('page_title','Halaman Awal') | Laboratorium Pemrograman FW</title>
 	<link rel="stylesheet" type="text/css" href="{{asset('component/bootstrap/dist/css/bootstrap.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('component/font-awesome/css/font-awesome.min.css')}}">
@@ -25,44 +34,48 @@
 </head>
 <body>
 		<nav class="navbar navbar-default navbar-fixed-top">
-				<div class="container">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"aria-controls="navbar">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<a href="{{url('/')}}" class="navbar-brand">Kuuga-Men</a>
-					</div>
-					<div id="navbar" class="collapse navbar-collapse">
-						<ul class="nav navbar-nav">
-							<li class="dropdown active">
-								<a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Mahasiswa <span class="caret"></span> </a>
-								<ul class="dropdown-menu" aria-labelledby="dlabel">
-									<li><a href="{{url('mahasiswa')}}">Data Mahasiswa</a></li>
-									<li class="divider"></li>
-									<li><a href="{{url('jadwal_matakuliyah')}}">Jadwal Mahasiswa</a></li></ul>
-									</li>
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapse" data-toogle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle Navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="{{url('/login')}}">Kuuga-Men</a>
+			</div>
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li class="dropdown active">
+						<a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mahasiswa <span class="caret"></span></a>
+						<ul class="dropdown-menu" aria-labelledby="dLabel">
+							<li><a href="{{url('mahasiswa')}}">Data Mahasiswa</a></li>
+							<li class="divider"></li>
 
-									<li class="dropdown active">
-										<a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Dosen <span class="caret"></span></a>
-										<ul class="dropdown-menu" aria-labelledby="dlabel">
-											<li><a  href="{{url('dosen')}}">Data Dosen</a></li>
-											<li class="divider"></li>
-											<li><a href="{{url('dosen_matakuliyah')}}">Jadwal Dosen Mengajar</a></li></ul>
-											</li>
+							<li><a href="{{url('jadwal_matakuliyah')}}">Jadwal Mahasiswa</a></li>							
+						</ul>
+					</li>
+					<li class="dropdown active">
+						<a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dosen<span class="caret"></span></a>
+						<ul class="dropdown-menu" aria-labelledby="dLabel">
+							<li><a href="{{url('dosen')}}">Data dosen</a></li>
+							<li class="divider"></li>
+							<li><a href="{{url('dosen_matakuliyah')}}">Jadwal Dosen Mengajar</a></li>							
+						</ul>
+					</li>
 
-											<li class="dropdown active">
-												<a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Pengaturan <span class="caret"></span> </a>
-												<ul class="dropdown-menu" aria-labelledby="dlabel">
-													<li><a href="{{url('pengguna')}}">Pengguna</a></li>
-													<li class="divider"></li>
-													<li><a href="{{url('ruangan')}}">Ruangan</a></li>
-													<li><a href="{{url('matakuliyah')}}">Matakuliah</a></li>
-												</ul>
-											</li>
-										</ul>
+					<li class="dropdown active">
+						<a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pengaturan <span class="caret"></span></a>
+						<ul class="dropdown-menu" aria-labelledby="dLabel">
+							<li><a href="{{ url('pengguna') }}">Pengguna</a></li>
+							<li class="divider"></li>
+							<li><a href="{{ url('ruangan') }}">Ruangan</a></li>
+							<li class="divider"></li>
+							<li><a href="{{ url('matakuliyah') }}">Matakuliah</a></li>							
+						</ul>
+							<li><a href="{{ url('logout')}}">Logout</a></li>
+					</li>
+				</ul>
 									</div><!--/.nav-collapse-->
 								</div>
 							</nav>
@@ -73,43 +86,26 @@
 													<strong>Informasi :</strong>
 				{{Session::get('informasi')}}
 									</div>
-							@if (count($errors) > 0)
-							<div class="alert alert-danger">
-								<ul>
-									@foreach ($errors->all() as $error)
-									<li>{{ $error }}</li>
-									@endforeach
-								</ul>
-							</div>
 							@endif
-							@endif
-							@yield('container')
-							@if(count($errors) > 0)
-							<div class="alert alert-danger">
-								<ul>
-									@foreach ($errors->all() as $error)
-									<li>{{ $error }}</li>
-									@endforeach
 
-								</ul>	
-							</div>
-							@endif
+							@yield('container')
 					</div>
 					<nav class="navbar navbar-default navbar-fixed-bottom">
 					<footer class="container">
 									<!-- please dont delete this -->
-									created by <a href="https://www.twitter.com/@bmbngprsty">
-									<span>
-									<i class="fa fa-facebook" style="color:#1da1f2"></i>
-									@Kuuga-Men</span></a>
-									<!--please dont delete this-->
 									
-                                                                                                 </nav>
-                                                                                                 <script type="text/javascript" src="{{asset('component/jquery/dist/jquery.min.js') }}"></script>
-                                                                                                 <script type="text/javascript" src="{{asset('component/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-                                                                                                 <script type="text/javascript">
-                                                                                                 $(function () {
-                                                                                                   $('[data-toggle="tooltip"]').tooltip()
-                                                                                                  });
-                                                                                                 </script>
-                                                                                           </body>
+								
+									                                                                                                       <!--/ please dont delete this -->
+									                                                                                                       </footer>
+									                                                                                        </nav>
+									                                                                                        <script type="text/javascript" src="{{asset('component/jquery/dist/jquery.min.js') }}"></script>
+									                                                                                        <script type="text/javascript" src="{{asset('component/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+									                                                                                        <script type="text/javascript">
+									                                                                                        $(function () {
+									                                                                                        		$('[data-toggle="tooltip"]').tooltip()
+									                                                                                        	});
+									                                                                                        </script>
+									                                                                                   </body>
+
+
+

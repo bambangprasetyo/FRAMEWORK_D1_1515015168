@@ -33,6 +33,22 @@ Route::get('/req',function (Illuminate\Http\Request $request)
 });
 
 
+Route::get('/login','SesiController@Form');
+Route::post('/login','SesiController@validasi');
+Route::get('/logout','SesiController@logout');
+Route::get('/','SesiController@index');
+
+Route::group(['middleware'=>'AutentifikasiUser'],function ()
+{
+Route::get('pengguna','PenggunaController@awal');
+Route::get('pengguna/tambah','PenggunaController@tambah');
+Route::get('pengguna/{pengguna}','PenggunaController@lihat');
+Route::post('pengguna/simpan','PenggunaController@simpan');
+Route::get('pengguna/edit/{pengguna}','PenggunaController@edit');
+Route::post('pengguna/edit/{pengguna}','PenggunaController@update');
+Route::get('pengguna/hapus/{pengguna}','PenggunaController@hapus');
+});
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -47,13 +63,13 @@ Route::get('/req',function (Illuminate\Http\Request $request)
 // 	return "Selamat Datang $mhs";
 // });
 
-Route::get('pengguna','PenggunaController@awal');
-Route::get('pengguna/tambah','PenggunaController@tambah');
-Route::get('pengguna/{pengguna}','PenggunaController@lihat');
-Route::post('pengguna/simpan','PenggunaController@simpan');
-Route::get('pengguna/edit/{pengguna}','PenggunaController@edit');
-Route::post('pengguna/edit/{pengguna}','PenggunaController@update');
-Route::get('pengguna/hapus/{pengguna}','PenggunaController@hapus');
+// Route::get('pengguna','PenggunaController@awal');
+// Route::get('pengguna/tambah','PenggunaController@tambah');
+// Route::get('pengguna/{pengguna}','PenggunaController@lihat');
+// Route::post('pengguna/simpan','PenggunaController@simpan');
+// Route::get('pengguna/edit/{pengguna}','PenggunaController@edit');
+// Route::post('pengguna/edit/{pengguna}','PenggunaController@update');
+// Route::get('pengguna/hapus/{pengguna}','PenggunaController@hapus');
 
 Route::get('matakuliyah','MatakuliyahController@awal');
 Route::get('matakuliyah/tambah','MatakuliyahController@tambah');
